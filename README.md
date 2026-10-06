@@ -25,34 +25,23 @@
 ```mermaid
 %%{init: {'theme': 'default'}}%%
 classDiagram
-    class Circulo {
-        - radio: float
-        + __init__(radio: float)
-        + calcular_area() float
-        + calcular_perimetro() float
+    class TipoCuenta {
+        <<Enumeration>>
+        AHORROS
+        CORRIENTE
     }
     
-    class Rectangulo {
-        - base: float
-        - altura: float
-        + __init__(base: float, altura: float)
-        + calcular_area() float
-        + calcular_perimetro() float
+    class CuentaBancaria {
+        - nombres_titular: str
+        - apellidos_titular: str
+        - numero_cuenta: str
+        - tipo_cuenta: TipoCuenta
+        - saldo: float = 0.0
+        + __init__(nombres_titular: str, apellidos_titular: str, numero_cuenta: str, tipo_cuenta: TipoCuenta)
+        + imprimir() void
+        + consultar_saldo() float
+        + consignar(valor: float) void
+        + retirar(valor: float) void
     }
     
-    class Cuadrado {
-        - lado: float
-        + __init__(lado: float)
-        + calcular_area() float
-        + calcular_perimetro() float
-    }
-    
-    class TrianguloRectangulo {
-        - base: float
-        - altura: float
-        + __init__(base: float, altura: float)
-        + calcular_area() float
-        + calcular_hipotenusa() float
-        + calcular_perimetro() float
-        + determinar_tipo_triangulo() str
-    }
+    CuentaBancaria --> TipoCuenta
