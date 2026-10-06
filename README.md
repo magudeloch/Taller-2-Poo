@@ -20,3 +20,15 @@
 | **Ejercicio 2.3** | Modelar el concepto de un automóvil con simulación de cambios de velocidad. |
 | **Ejercicio 2.4** | Modelar figuras geométricas: círculo, rectángulo, cuadrado y triángulo rectángulo. |
 | **Ejercicio 2.5** | Modelar una cuenta bancaria con funciones para consignar y retirar saldo. |
+
+
+```mermaid
+classDiagram
+    class Persona {
+        - nombre: str
+        - apellido: str
+        - numero_documento: str
+        - anio_nacimiento: int
+        + __init__(nombre: str, apellido: str, numero_documento: str, anio_nacimiento: int)
+        + imprimir() void
+    }
