@@ -25,11 +25,26 @@
 ```mermaid
 %%{init: {'theme': 'default'}}%%
 classDiagram
-    class Persona {
-        - nombre: str
-        - apellido: str
-        - numero_documento: str
-        - anio_nacimiento: int
-        + __init__(nombre: str, apellido: str, numero_documento: str, anio_nacimiento: int)
-        + imprimir() void
+    class TipoPlaneta {
+        <<Enumeration>>
+        GASEOSO
+        TERRESTRE
+        ENANO
     }
+
+    class Planeta {
+        - nombre: str
+        - cantidad_satelites: int
+        - masa: float
+        - volumen: float
+        - diametro: int
+        - distancia_media_sol: int
+        - tipo: TipoPlaneta
+        - es_observable: bool
+        + __init__(nombre: str, cantidad_satelites: int, masa: float, volumen: float, diametro: int, distancia_media_sol: int, tipo: TipoPlaneta, es_observable: bool)
+        + imprimir() void
+        + calcular_densidad() float
+        + es_planeta_exterior() bool
+    }
+    
+    Planeta --> TipoPlaneta
