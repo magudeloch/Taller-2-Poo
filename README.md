@@ -24,17 +24,6 @@
 
 ```mermaid
 classDiagram
-    class Persona {
-        - nombre: str
-        - apellido: str
-        - numero_documento: str
-        - anio_nacimiento: int
-        + __init__(nombre: str, apellido: str, numero_documento: str, anio_nacimiento: int)
-        + imprimir() void
-    }
-
-```mermaid
-classDiagram
     class TipoPlaneta {
         <<Enumeration>>
         GASEOSO
@@ -57,4 +46,6 @@ classDiagram
         + es_planeta_exterior() bool
     }
     
+    Planeta --> TipoPlaneta
+
     Planeta --> TipoPlaneta
