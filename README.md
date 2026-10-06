@@ -25,26 +25,76 @@
 ```mermaid
 %%{init: {'theme': 'default'}}%%
 classDiagram
-    class TipoPlaneta {
+    class TipoCombustible {
         <<Enumeration>>
-        GASEOSO
-        TERRESTRE
-        ENANO
-    }
-
-    class Planeta {
-        - nombre: str
-        - cantidad_satelites: int
-        - masa: float
-        - volumen: float
-        - diametro: int
-        - distancia_media_sol: int
-        - tipo: TipoPlaneta
-        - es_observable: bool
-        + __init__(nombre: str, cantidad_satelites: int, masa: float, volumen: float, diametro: int, distancia_media_sol: int, tipo: TipoPlaneta, es_observable: bool)
-        + imprimir() void
-        + calcular_densidad() float
-        + es_planeta_exterior() bool
+        GASOLINA
+        BIOETANOL
+        DIESEL
+        BIODIESEL
+        GAS_NATURAL
     }
     
-    Planeta --> TipoPlaneta
+    class TipoAutomovil {
+        <<Enumeration>>
+        CARRO_CIUDAD
+        SUBCOMPACTO
+        COMPACTO
+        FAMILIAR
+        EJECUTIVO
+        SUV
+    }
+    
+    class Color {
+        <<Enumeration>>
+        BLANCO
+        NEGRO
+        ROJO
+        NARANJA
+        AMARILLO
+        VERDE
+        AZUL
+        VIOLETA
+    }
+
+    class Automovil {
+        - marca: str
+        - modelo: int
+        - motor: float
+        - tipo_combustible: TipoCombustible
+        - tipo_automovil: TipoAutomovil
+        - numero_puertas: int
+        - cantidad_asientos: int
+        - velocidad_maxima: float
+        - color: Color
+        - velocidad_actual: float
+        + __init__(marca, modelo, motor, tipo_combustible, tipo_automovil, numero_puertas, cantidad_asientos, velocidad_maxima, color, velocidad_actual)
+        + get_marca() str
+        + set_marca(marca: str) void
+        + get_modelo() int
+        + set_modelo(modelo: int) void
+        + get_motor() float
+        + set_motor(motor: float) void
+        + get_tipo_combustible() TipoCombustible
+        + set_tipo_combustible(tipo_combustible: TipoCombustible) void
+        + get_tipo_automovil() TipoAutomovil
+        + set_tipo_automovil(tipo_automovil: TipoAutomovil) void
+        + get_numero_puertas() int
+        + set_numero_puertas(numero_puertas: int) void
+        + get_cantidad_asientos() int
+        + set_cantidad_asientos(cantidad_asientos: int) void
+        + get_velocidad_maxima() float
+        + set_velocidad_maxima(velocidad_maxima: float) void
+        + get_color() Color
+        + set_color(color: Color) void
+        + get_velocidad_actual() float
+        + set_velocidad_actual(velocidad_actual: float) void
+        + acelerar(incremento: float) void
+        + desacelerar(decremento: float) void
+        + frenar() void
+        + calcular_tiempo_llegada(distancia_km: float) float
+        + mostrar_atributos() void
+    }
+    
+    Automovil --> TipoCombustible
+    Automovil --> TipoAutomovil
+    Automovil --> Color
