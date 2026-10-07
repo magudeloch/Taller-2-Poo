@@ -20,28 +20,3 @@
 | **Ejercicio 2.3** | Modelar el concepto de un automóvil con simulación de cambios de velocidad. |
 | **Ejercicio 2.4** | Modelar figuras geométricas: círculo, rectángulo, cuadrado y triángulo rectángulo. |
 | **Ejercicio 2.5** | Modelar una cuenta bancaria con funciones para consignar y retirar saldo. |
-
-
-```mermaid
-%%{init: {'theme': 'default'}}%%
-classDiagram
-    class TipoCuenta {
-        <<Enumeration>>
-        AHORROS
-        CORRIENTE
-    }
-    
-    class CuentaBancaria {
-        - nombres_titular: str
-        - apellidos_titular: str
-        - numero_cuenta: str
-        - tipo_cuenta: TipoCuenta
-        - saldo: float = 0.0
-        + __init__(nombres_titular: str, apellidos_titular: str, numero_cuenta: str, tipo_cuenta: TipoCuenta)
-        + imprimir() void
-        + consultar_saldo() float
-        + consignar(valor: float) void
-        + retirar(valor: float) void
-    }
-    
-    CuentaBancaria --> TipoCuenta
